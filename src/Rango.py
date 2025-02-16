@@ -1,4 +1,4 @@
-class Range:
+class Rango:
     def __init__(self,X1,Xu):
         self.__X1 = X1
         self.__Xu = Xu

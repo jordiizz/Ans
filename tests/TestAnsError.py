@@ -1,8 +1,8 @@
 import unittest 
 import sys 
-sys.path.append('../src')
-from AnsError import AnsError
-from Rango import Range
+from src.Rango import Rango as Range
+from src.AnsError import AnsError
+
 
 class TestAnsError(unittest.TestCase):
     def test_calc_r(self):
