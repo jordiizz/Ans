@@ -23,7 +23,7 @@ class AnsError:
     def biseccion(self,funcion, Rango,Es,Xra,contador = 1):
         Xr = self.calc_Xr(Rango)
         mult_funciones = funcion(Rango.X1) * funcion(Xr)
-        if(contador != 0):
+        if(contador != 1):
             Ea = self.calc_Ea(Xr,Xra)
             if(Ea <= Es):
                 return Xr, contador        
