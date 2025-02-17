@@ -11,7 +11,7 @@ class AnsError:
     def calc_f(self,funcion, X):
         return funcion(X)
 
-    def iteraciones(self,Range):
+    def biseccion(self,funcion, Range: Rango,memo = {}):
         while():
             pass
         
