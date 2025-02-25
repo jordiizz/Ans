@@ -2,7 +2,7 @@ import pandas as pd
 from src.Rango import Rango
 #mport FuncionMatematica as fm
 
-class AnsError:
+class Biseccion:
     
     def calc_Xr(self,Rango: Rango):
         return ((Rango.X1 + Rango.Xu) / 2)
