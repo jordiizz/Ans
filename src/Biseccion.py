@@ -1,6 +1,5 @@
 import pandas as pd
 from src.Rango import Rango
-#mport FuncionMatematica as fm
 
 class Biseccion:
     
@@ -16,10 +15,6 @@ class Biseccion:
         """
         return ((Rango.X1 + Rango.Xu) / 2)
         
-
-    def calc_f(self,funcion, X):
-        return funcion(X)
-    
     def calc_Es(self,n):
         #return (0.5e(2-n))
         return abs((0.5 * (10**(2-n))))
@@ -30,19 +25,28 @@ class Biseccion:
         
 
     def biseccion(self,funcion, Rango,Es,Xra = 0,contador = 1, memo = {}):
-        Xr = self.calc_Xr(Rango)
+        try:
+            Xr = self.calc_Xr(Rango)
+            if Rango.X1 not in memo:
+                memo[Rango.X1] = funcion(Rango.X1)
+            if Xr not in memo:
+                memo[Xr] = funcion(Xr)
 
-        mult_funciones = funcion(Rango.X1) * funcion(Xr)
-        if(contador != 1):
-            Ea = self.calc_Ea(Xr,Xra)
-            if(Ea <= Es):
-                return Xr, contador        
-        if(mult_funciones) < 0:
-            Rango.Xu = Xr
-        elif (mult_funciones) > 0:
-            Rango.X1 = Xr
-       
-        return self.biseccion(funcion,Rango,Es,Xr,contador + 1)
+            mult_funciones = memo[Rango.X1] * memo[Xr]
+            if mult_funciones == Xr:
+                return Xr, contador
+            if(contador != 1):
+                Ea = self.calc_Ea(Xr,Xra)
+                if(Ea <= Es):
+                    return Xr, contador        
+            if(mult_funciones) < 0:
+                Rango.Xu = Xr
+            elif (mult_funciones) > 0:
+                Rango.X1 = Xr
+        
+            return self.biseccion(funcion,Rango,Es,Xr,contador + 1)
+        except:
+            print("Pila Valor: ", contador)
 
 
    
