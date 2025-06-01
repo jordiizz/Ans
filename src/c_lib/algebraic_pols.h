@@ -22,7 +22,7 @@ typedef struct polinomio
     int max_grado;
     int n_terminos;
     char var;
-    Termino * terminos;
+    Termino *terminos;
 }Polinomio;
 
 /**
@@ -39,7 +39,7 @@ Polinomio *crear_polinomio();
  * @param polinomio EL * del polinomio 
  * @param term Polinomio en cadena de carácteres (array), const
  */
-void tokenizar_ecuacion(Polinomio *polinomio, const char *term, int grado);
+void tokenizar_ecuacion(Polinomio *polinomio, const char *term);
 
 /**
  * @brief comprueba la dimension de una ecuación

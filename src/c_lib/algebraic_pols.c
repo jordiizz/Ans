@@ -25,6 +25,8 @@ Polinomio *crear_polinomio(){
 Termino *crear_termino(double coef, char var, double grado){
     if (((coef && grado) > 0) && (var != '\0')){
         Termino *termino = (Termino*) malloc(sizeof(Termino));
+        
+        return termino;
     }
     return NULL;
 }
@@ -39,12 +41,12 @@ char asignar_variable(const char *ecuacion){
                     fprintf(stderr, "ecuation is not unidimensional");
                     exit(EXIT_FAILURE);
                 }
-                var = ecuacion[1];
+                var = ecuacion[i];
                 return var;           
             }
         }
     }
-    return 1;
+    return '\0';
 }
 
 //En un inicio no se validará
@@ -52,7 +54,7 @@ void tokenizar_ecuacion(Polinomio *polinomio, const char *ecuacion){
     int grado = 0;
     double coeficiente = 0.0;
     char variable = asignar_variable(ecuacion);
-
+    int len_ecuacion = strlen(ecuacion);
     /*Recorre la cadena de carácteres que es la ecuación
      * En este bloque encontraremos qué caracter usamos como variable x,y,z
      * En esta parte se verificará que la encuación sea de una variable
@@ -60,6 +62,14 @@ void tokenizar_ecuacion(Polinomio *polinomio, const char *ecuacion){
     */
   
     //Acá partiremos la ecuación, que es tokenizar
+    //x⁴ + 3x² - 54x⁶
+    for (int i = 0; i < len_ecuacion ; i++ ){
+
+        if(ecuacion[i] == variable){
+            
+        }
+    }
+
     if(variable != '\0'){
         if(srtchr(ecuacion, '^') != NULL){
             
